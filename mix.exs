@@ -36,17 +36,18 @@ defmodule Scrivener.Ecto.Mixfile do
     ]
   end
 
-  defp applications(:test), do: [:scrivener, :postgrex, :ecto, :logger]
+  defp applications(:test), do: [:scrivener, :postgrex, :ecto, :logger, :telemetry]
   defp applications(_), do: [:scrivener, :logger]
 
   defp deps do
     [
       {:scrivener, "~> 2.4"},
-      {:ecto, "~> 2.0"},
+      {:ecto, "~> 3.0-rc"},
+      {:ecto_sql, "~> 3.0-rc"},
       {:dialyxir, "~> 0.5.0", only: :dev},
       {:earmark, ">= 0.0.0", only: :dev},
       {:ex_doc, "~> 0.18.0", only: :dev},
-      {:postgrex, "~> 0.11.0 or ~> 0.12.0 or ~> 0.13.0", optional: true}
+      {:postgrex, "~> 0.14-rc", optional: true}
     ]
   end
 
